@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Job extends AbstractEntity{
 
+    @ManyToOne
     private Employer employer;
     private String skills;
 
@@ -14,7 +15,6 @@ public class Job extends AbstractEntity{
         this.employer = employer;
         this.skills = skills;
     }
-
 
     public Employer getEmployer() {
         return employer;
