@@ -35,6 +35,7 @@ public class HomeController {
     public String index(Model model) {
 
         model.addAttribute("title", "My Jobs");
+        model.addAttribute("jobs", jobRepository.findAll());
 
         return "index";
     }
@@ -56,14 +57,13 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
-        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-        newJob.setSkills(skillObjs);
-        //need to validate that query only looks for skills if Job model is valid (if newJob has skills)
 
         Optional <Employer> employer = employerRepository.findById(employerId);
         if (employer.isPresent()) {
             newJob.setEmployer(employer.get());
         }
+        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+        newJob.setSkills(skillObjs);
 
         jobRepository.save(newJob);
 
