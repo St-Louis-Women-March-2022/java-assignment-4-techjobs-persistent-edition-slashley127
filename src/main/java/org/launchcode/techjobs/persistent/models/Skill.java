@@ -27,12 +27,5 @@ public class Skill extends AbstractEntity {
         return jobs;
     }
 
-    public void setJobs(List<Job> jobs) {
-        this.jobs = jobs;
-    }
-
-    @Override
-    public String toString() {
-        return description;
-    }
+    public void setJobs(List<Job> jobs) {this.jobs = jobs;}
 }

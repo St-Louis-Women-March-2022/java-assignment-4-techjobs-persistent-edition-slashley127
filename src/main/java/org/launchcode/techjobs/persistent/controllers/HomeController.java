@@ -65,7 +65,7 @@ public class HomeController {
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         newJob.setSkills(skillObjs);
 
-        jobRepository.save(newJob);
+        model.addAttribute("jobs", jobRepository.save(newJob));
 
         return "redirect:";
     }
